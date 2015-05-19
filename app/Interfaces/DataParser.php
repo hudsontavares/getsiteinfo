@@ -1,4 +1,4 @@
-<?php namespace \App\Interfaces;
+<?php namespace App\Interfaces;
 /**
  *  This interface defines the basic exposed functionality for
  *  data parsers, software artifacts that receives an URI and
@@ -8,14 +8,6 @@
  **/
     interface DataParser
     {
-        /**
-         *  Initializes the object and defines it's target parseable
-         *  data.
-         *
-         *  @returns void
-         */
-        public function __construct($target);
-        
         /**
          *  Returns the current target content of this parser.
          *

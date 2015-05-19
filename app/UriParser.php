@@ -1,4 +1,4 @@
-<?php namespace \App;
+<?php namespace App;
 
 use \App\Interfaces\AttachableParser;
 use \App\Interfaces\DataParser;
