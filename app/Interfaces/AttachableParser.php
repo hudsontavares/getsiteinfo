@@ -1,5 +1,4 @@
-<?php
-    namespace \App\Interfaces;
+<?php namespace \App\Interfaces;
 /**
  *  This interface defines the basic exposed functionality for
  *  any parsing-capable class that wants to interact with this
