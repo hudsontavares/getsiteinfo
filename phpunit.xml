@@ -11,7 +11,9 @@
          syntaxCheck="false">
     <testsuites>
         <testsuite name="Data Parsers">
+            <!-- <directory suffix=".php">./tests/</directory> -->
             <file>./tests/TestDataParsers.php</file>
+            <file>./tests/TestAttachableParsers.php</file>
         </testsuite>
     </testsuites>
     <php><env name="APP_ENV" value="testing"/></php>

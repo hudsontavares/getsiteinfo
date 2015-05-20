@@ -1,4 +1,5 @@
 <?php namespace App\Interfaces;
+
 /**
  *  This interface defines the basic exposed functionality for
  *  any parsing-capable class that wants to interact with this
@@ -23,5 +24,5 @@
          *  @param DataParser $data the object to be inspected
          *  @returns array() a hash of keys and values obtained from $data
          **/
-        public function parse(DataParser $data);
+        public function parse(\App\Interfaces\DataParser $data);
     }

@@ -2,7 +2,7 @@
 /**
  *  This trait implements the functionality that allows an implementing class
  *  to parse HTTP headers.
- *
+ *  
  **/
 trait HttpHeadersParser
 {
@@ -19,6 +19,13 @@ trait HttpHeadersParser
         
         if(is_array($input))
         {
+            if(sizeof($input) > 0)
+            {
+                $statusCode                 = explode(' ', $input[0]);
+                $statusCode                 = isset($statusCode[1]) ? ( int ) $statusCode[1] : 200;
+                $returnData['status_code']  = $statusCode;
+            }
+            
             foreach($input as $header)
             {
                 $pos = mb_strpos($header, ':');

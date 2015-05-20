@@ -1,16 +1,12 @@
 <?php namespace App\DataParsers;
 
 use \App\Interfaces\DataParser;
-use \App\Traits\HttpHeadersParser;
 
 /**
  *  Basic implementation of an HTTP request using the GET method.
  */
 class HttpGetDataParser implements DataParser
 {
-    /* To enable the class to parse HTTP headers */
-    use HttpHeadersParser{HttpHeadersParser::parse as httpHeadersParser;}
-    
     private $target     = '';
     private $timeout    = 10;
     private $dataModel  = null;
@@ -45,7 +41,7 @@ class HttpGetDataParser implements DataParser
     /**
      *  Gets the metadata (headers) of the parsed URI response.
      *
-     *  @returns String[] a hash containing all returned headers.
+     *  @returns String[] an array containing all returned headers.
      */
     public function getMetadata(){return $this->metadata;}
     
@@ -72,9 +68,9 @@ class HttpGetDataParser implements DataParser
         if($data === false)return $this;
         
         $this->parsed    = true;
-        $this->metadata  = $this->httpHeadersParser($http_response_header);
+        $this->metadata  = $http_response_header;
         $this->dataModel = new \DOMDocument('1.0', 'UTF-8');
-        @$this->dataModel->loadHTML($data);
+        @$this->dataModel->loadHTML('<?xml version="1.0" encoding="UTF-8" ?>' . $data);
         return $this;
     }
 }
